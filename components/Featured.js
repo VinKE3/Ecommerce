@@ -85,7 +85,7 @@ export default function Featured({ product }) {
                   <Desc>{product?.description}</Desc>
                   <ButtonsWrapper>
                     <ButtonLink
-                      href={"/product/" + product._id}
+                      href={product?.id ? "/product/" + product.id : "#"}
                       outline={1}
                       white={1}
                     >
@@ -111,12 +111,6 @@ export default function Featured({ product }) {
                   className={"main"}
                   src={product?.images?.[0]}
                   alt="Imagen Banner"
-                  sizes="100vw"
-                  // Make the image display full width
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                  }}
                   width={500}
                   height={500}
                 />
