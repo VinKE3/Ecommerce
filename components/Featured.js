@@ -81,8 +81,8 @@ export default function Featured({ product }) {
             <div>
               <RevealWrapper origin={"left"} delay={0}>
                 <ContentWrapper>
-                  <Title>{product.title}</Title>
-                  <Desc>{product.description}</Desc>
+                  <Title>{product?.title}</Title>
+                  <Desc>{product?.description}</Desc>
                   <ButtonsWrapper>
                     <ButtonLink
                       href={"/product/" + product._id}
@@ -93,8 +93,8 @@ export default function Featured({ product }) {
                     </ButtonLink>
                     <FlyingButton
                       white={1}
-                      _id={product._id}
-                      src={product.images?.[0]}
+                      _id={product?.id}
+                      src={product?.images?.[0]}
                     >
                       <CartIcon />
                       Add to cart
@@ -109,10 +109,16 @@ export default function Featured({ product }) {
               <CenterImg>
                 <Image
                   className={"main"}
-                  src={product.images?.[0]}
-                  alt=""
-                  height={500}
+                  src={product?.images?.[0]}
+                  alt="Imagen Banner"
+                  sizes="100vw"
+                  // Make the image display full width
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                  }}
                   width={500}
+                  height={500}
                 />
               </CenterImg>
             </RevealWrapper>
