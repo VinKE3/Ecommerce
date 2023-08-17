@@ -198,7 +198,12 @@ export default function CartPage() {
                       <tr key={product._id}>
                         <ProductInfoCell>
                           <ProductImageBox>
-                            <Image src={product.images[0]} alt="" />
+                            <Image
+                              src={product.images[0]}
+                              alt=""
+                              height={500}
+                              width={500}
+                            />
                           </ProductImageBox>
                           {product.title}
                         </ProductInfoCell>

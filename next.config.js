@@ -4,6 +4,12 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-}
+  images: {
+    domains: [
+      "lh3.googleusercontent.com",
+      "next-admin-ecommerce.s3.amazonaws.com",
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

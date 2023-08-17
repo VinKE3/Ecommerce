@@ -124,7 +124,7 @@ export default function ProductBox({
           <WishlistButton wished={isWished} onClick={addToWishlist}>
             {isWished ? <HeartSolidIcon /> : <HeartOutlineIcon />}
           </WishlistButton>
-          <Image src={images?.[0]} alt="" />
+          <Image src={images?.[0]} alt="" width={500} height={500} />
         </div>
       </WhiteBox>
       <ProductInfoBox>
