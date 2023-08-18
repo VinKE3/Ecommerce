@@ -18,6 +18,10 @@ const FlyingButtonWrapper = styled.div`
       background-color: transparent;
       border: 1px solid ${primary};
       color:${primary};
+      &:hover {
+        background-color: #000;
+        color:white;
+      }
     `}
     ${(props) =>
       props.white &&

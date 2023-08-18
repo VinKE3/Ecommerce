@@ -69,6 +69,16 @@ const ImgColumn = styled(Column)`
     width: 100%;
   }
 `;
+const Hover = styled.div`
+  &:hover {
+    background-color: #000;
+  }
+`;
+const HoverCart = styled.div`
+  &:hover {
+    background-color: #000;
+  }
+`;
 
 const ContentWrapper = styled.div``;
 
@@ -84,13 +94,15 @@ export default function Featured({ product }) {
                   <Title>{product?.title}</Title>
                   <Desc>{product?.description}</Desc>
                   <ButtonsWrapper>
-                    <ButtonLink
-                      href={product?._id ? "/product/" + product._id : "#"}
-                      outline={1}
-                      white={1}
-                    >
-                      Read more
-                    </ButtonLink>
+                    <Hover>
+                      <ButtonLink
+                        href={product?._id ? "/product/" + product._id : "#"}
+                        outline={1}
+                        white={1}
+                      >
+                        Read more
+                      </ButtonLink>
+                    </Hover>
                     <FlyingButton
                       white={1}
                       _id={product?.id}
