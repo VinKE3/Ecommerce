@@ -74,12 +74,6 @@ const Hover = styled.div`
     background-color: #000;
   }
 `;
-const HoverCart = styled.div`
-  &:hover {
-    background-color: #000;
-  }
-`;
-
 const ContentWrapper = styled.div``;
 
 export default function Featured({ product }) {
@@ -105,7 +99,7 @@ export default function Featured({ product }) {
                     </Hover>
                     <FlyingButton
                       white={1}
-                      _id={product?.id}
+                      _id={product?._id}
                       src={product?.images?.[0]}
                     >
                       <CartIcon />

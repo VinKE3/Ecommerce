@@ -10,6 +10,7 @@ import { mongooseConnect } from "@/lib/mongoose";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { WishedProduct } from "@/models/WishedProduct";
+import { useState } from "react";
 
 const CategoryGrid = styled.div`
   display: grid;
@@ -50,16 +51,48 @@ const ShowAllSquare = styled(Link)`
   text-decoration: none;
 `;
 
+const Select = styled.select`
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+`;
+const Flex = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
 export default function CategoriesPage({
   mainCategories,
   categoriesProducts,
   wishedProducts = [],
 }) {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
+  const filteredCategories =
+    selectedCategory === "all"
+      ? mainCategories
+      : mainCategories.filter((cat) => cat._id === selectedCategory);
+
   return (
     <>
       <Header />
       <Center>
-        {mainCategories.map((cat, index) => (
+        <Flex>
+          <h1>Categories</h1>
+          <Select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="all">All</option>
+            {mainCategories.map((cat, index) => (
+              <option key={index} value={cat._id}>
+                {cat.name}
+              </option>
+            ))}
+          </Select>
+        </Flex>
+        {filteredCategories.map((cat, index) => (
           <CategoryWrapper key={index}>
             <CategoryTitle>
               <h2>{cat.name}</h2>

@@ -120,7 +120,7 @@ export default function CartPage() {
     axios.get("/api/settings?name=shippingFee").then((res) => {
       setShippingFee(res.data.value);
     });
-  }, []);
+  }, [clearCart]);
   useEffect(() => {
     if (!session) {
       return;
